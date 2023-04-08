@@ -3,19 +3,14 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     var today = new Date();
-    var cuurentDay = today.getDay();
-    var day = '';
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var date = today.toLocaleDateString('en-US', options);
 
-    if (cuurentDay === 6 || cuurentDay === 0) {
-        day = 'Weekend';
-    } else {    
-        day = 'Weekday';
-    }
-    res.render('list', {kindOfDay: day});
+    res.render('list', {date: date});
 });
 
 app.listen(3000, () => {
