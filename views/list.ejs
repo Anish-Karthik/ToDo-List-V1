@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuurent Day</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>ToDo List</title>
 </head>
 <body>
-    <h1 class="dayType">Today is <%= date %></h1>
-    <% if (dayType === "weekend") { %>
-        <style> .dayType{ color: blueviolet; } </style>
-    <% } else { %>
-        <style> .dayType{ color:darkgoldenrod; } </style>
-    <% } %>
-
-    <ul>
+    <div class = 'box' id = "heading">
+        <h1 class="dayType"><%= date %></h1>
+    </div>
+    <div class="box">
         <% for(var i = 0; i < taskList.length; i++) { %>
-            <li><%= taskList[i] %></li>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= taskList[i] %></p>
+            </div>
         <% } %>
-    </ul>
-    
-    <form action="/" method="post">
-        <input type="text" name="newTask" placeholder="Add Task">
-        <button type="submit">Add Task</button>
-    </form>
+
+        <form action="/" method="post">
+            <input type="text" name="newTask" placeholder="New Task" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+    </div>
 </body>
 </html>
