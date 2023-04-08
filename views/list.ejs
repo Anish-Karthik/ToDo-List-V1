@@ -7,6 +7,22 @@
     <title>Cuurent Day</title>
 </head>
 <body>
-    <h1>Today is <%= date %></h1>
+    <h1 class="dayType">Today is <%= date %></h1>
+    <% if (dayType === "weekend") { %>
+        <style> .dayType{ color: blueviolet; } </style>
+    <% } else { %>
+        <style> .dayType{ color:darkgoldenrod; } </style>
+    <% } %>
+
+    <ul>
+        <% for(var i = 0; i < taskList.length; i++) { %>
+            <li><%= taskList[i] %></li>
+        <% } %>
+    </ul>
+    
+    <form action="/" method="post">
+        <input type="text" name="newTask" placeholder="Add Task">
+        <button type="submit">Add Task</button>
+    </form>
 </body>
 </html>
