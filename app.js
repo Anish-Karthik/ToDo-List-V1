@@ -7,8 +7,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var workList = ['Complete the course', 'Finish the project', 'Ace the exam',];
-var taskList = ['Buy Food', 'Cook Food', 'Eat Food'];
+var workList = ['Complete the course', 'Finish the project', 'study for exam'];
+var taskList = ['Complete the course', 'Finish the project', 'study for exam'];
 
 app.get('/', (req, res) => {
     res.render('list', {ListTitle: date.getDate(), taskList: taskList, route: '/'});
